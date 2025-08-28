@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Profile - CV Style</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #34495e;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .profile-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+            border-bottom: 5px solid var(--secondary-color);
+        }
+        
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+        
+        .contact-info .list-group-item {
+            border: none;
+            padding: 8px 0;
+            background: transparent;
+        }
+        
+        .contact-icon {
+            width: 30px;
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+        }
+        
+        .card {
+            border: none;
+            border-left: 4px solid var(--secondary-color);
+            border-radius: 0;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-title {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        
+        .date-badge {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        .responsibility-list, .achievement-list {
+            padding-left: 20px;
+        }
+        
+        .responsibility-list li::marker, .achievement-list li::marker {
+            color: var(--secondary-color);
+        }
+        
+        .achievement-list li {
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .achievement-list li:before {
+            content: "\f091";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+        
+        .badge-custom {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+            margin: 5px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .badge-custom:hover {
+            background-color: var(--primary-color);
+            transform: scale(1.05);
+        }
+        
+        .skill-category {
+            margin-bottom: 25px;
+        }
+        
+        .skill-bar {
+            height: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary-color), #1abc9c);
+            border-radius: 5px;
+        }
+        
+        .language-item {
+            margin-bottom: 15px;
+        }
+        
+        .award-item {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 15px;
+        }
+        
+        .award-item:before {
+            content: "\f559";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            text-align: center;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .profile-img {
+                width: 140px;
+                height: 140px;
+                margin-bottom: 20px;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="profile-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1 class="display-4 fw-bold">Alexandra Chen</h1>
+                    <p class="lead">Senior Software Engineer & UX Specialist</p>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" 
+                         alt="Profile Picture" class="profile-img rounded-circle">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Contact Information -->
+        <section class="mb-5">
+            <h2 class="section-title"><i class="fas fa-address-card me-2"></i>Contact Information</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="list-group contact-info">
+                        <li class="list-group-item">
+                            <span class="contact-icon"><i class="fas fa-envelope"></i></span>
+                            alex.chen@example.com
+                        </li>
+                        <li class="list-group-item">
+                            <span class="contact-icon"><i class="fas fa-phone"></i></span>
+                            +1 (555) 123-4567
+                        </li>
+                        <li class="list-group-item">
+                            <span class="contact-icon"><i class="fas fa-map-marker-alt"></i></span>
+                            San Francisco, CA
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul class="list-group contact-info">
+                        <li class="list-group-item">
+                            <span class="contact-icon"><i class="fab fa-linkedin"></i></span>
+                            <a href="#" class="text-decoration-none">linkedin.com/in/alexandrachen</a>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="contact-icon"><i class="fab fa-github"></i></span>
+                            <a href="#" class="text-decoration-none">github.com/alexandrachen</a>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="contact-icon"><i class="fas fa-globe"></i></span>
+                            <a href="#" class="text-decoration-none">alexandrachen.dev</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me -->
+        <section class="mb-5">
+            <h2 class="section-title"><i class="fas fa-user me-2"></i>About Me</h2>
+            <p class="lead">Innovative software engineer with 7+ years of experience specializing in full-stack development and user experience design. Passionate about creating efficient, scalable solutions that solve real-world problems.</p>
+            <p>I thrive in collaborative environments and enjoy mentoring junior developers. My approach combines technical excellence with a deep understanding of user needs to deliver products that exceed expectations. Currently exploring opportunities in AI-driven application development.</p>
+        </section>
+
+        <!-- Work Experience -->
+        <section class="mb-5">
+            <h2 class="section-title"><i class="fas fa-briefcase me-2"></i>Work Experience</h2>
+            
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Senior Software Engineer</h3>
+                    <h4 class="card-subtitle mb-2 text-muted">TechInnovate Inc.</h4>
+                    <div class="date-badge d-inline-block mb-3">Jan 2020 - Present</div>
+                    
+                    <h5>Responsibilities:</h5>
+                    <ul class="responsibility-list">
+                        <li>Lead development of customer-facing web applications using React, Node.js, and MongoDB</li>
+                        <li>Architect and implement scalable microservices for the company's SaaS platform</li>
+                        <li>Mentor junior developers and conduct code reviews to maintain quality standards</li>
+                        <li>Collaborate with UX designers to create intuitive user interfaces</li>
+                    </ul>
+                    
+                    <h5 class="mt-4">Key Achievements:</h5>
+                    <ul class="achievement-list">
+                        <li>Reduced application load time by 65% through performance optimization</li>
+                        <li>Implemented CI/CD pipeline that decreased deployment time by 40%</li>
+                        <li>Designed and launched a new analytics dashboard used by 15,000+ customers</li>
+                        <li>Received "Innovator of the Year" award in 2022 for contributions to product development</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Software Developer</h3>
+                    <h4 class="card-subtitle mb-2 text-muted">Global Solutions Ltd.</h4>
+                    <div class="date-badge d-inline-block mb-3">Mar 2017 - Dec 2019</div>
+                    
+                    <h5>Responsibilities:</h5>
+                    <ul class="responsibility-list">
+                        <li>Developed and maintained enterprise applications using Angular and .NET Core</li>
+                        <li>Created RESTful APIs for integration with third-party services</li>
+                        <li>Implemented automated testing using Jest and Selenium</li>
+                        <li>Participated in agile development processes including sprint planning and retrospectives</li>
+                    </ul>
+                    
+                    <h5 class="mt-4">Key Achievements:</h5>
+                    <ul class="achievement-list">
+                        <li>Led migration of legacy system to modern stack, improving performance by 200%</li>
+                        <li>Developed a reusable component library adopted by 5 different product teams</li>
+                        <li>Reduced critical bugs by 35% through improved testing practices</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="mb-5">
+            <h2 class="section-title"><i class="fas fa-graduation-cap me-2"></i>Education</h2>
+            
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Master of Science in Computer Science</h3>
+                    <h4 class="card-subtitle mb-2 text-muted">Stanford University</h4>
+                    <div class="date-badge d-inline-block mb-3">2015 - 2017</div>
+                    <p>Specialized in Human-Computer Interaction and Machine Learning. GPA: 3.9/4.0</p>
+                    <a href="#" class="badge-custom"><i class="fas fa-download me-1"></i> View Certificate</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Bachelor of Science in Software Engineering</h3>
+                    <h4 class="card-subtitle mb-2 text-muted">University of California, Berkeley</h4>
+                    <div class="date-badge d-inline-block mb-3">2011 - 2015</div>
+                    <p>Minor in Business Administration. Graduated with Honors. GPA: 3.8/4.0</p>
+                    <a href="#" class="badge-custom"><i class="fas fa-download me-1"></i> View Certificate</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificates -->
+        <section class="mb-5">
+            <h2 class="section-title"><i class="fas fa-certificate me-2"></i>Certificates</h2>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">AWS Certified Solutions Architect</h5>
+                            <p class="card-text">Amazon Web Services</p>
+                            <a href="#" class="badge-custom"><i class="fas fa-external-link-alt me-1"></i> View Certificate</a>
+                            <span class="badge bg-success ms-2">Valid until 2025</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Google Professional Data Engineer</h5>
+                            <p class="card-text">Google Cloud</p>
+                            <a href="#" class="badge-custom"><i class="fas fa-external-link-alt me-1"></i> View Certificate</a>
+                            <span class="badge bg-success ms-2">Valid until 2024</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Certified ScrumMaster® (CSM)</h5>
+                            <p class="card-text">Scrum Alliance</p>
+                            <a href="#" class="badge-custom"><i class="fas fa-external-link-alt me-1"></i> View Certificate</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Microsoft Certified: Azure Developer Associate</h5>
+                            <p class="card-text">Microsoft</p>
+                            <a href="#" class="badge-custom"><i class="fas fa-external-link-alt me-1"></i> View Certificate</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Awards -->
+        <section class="mb-5">
+            <h2 class="section-title"><i class="fas fa-award me-2"></i>Awards</h2>
+            <div class="award-item">
+                <h4>Innovator of the Year</h4>
+                <p>TechInnovate Inc. • 2022</p>
+                <p>Awarded for developing a groundbreaking feature that increased user engagement by 45%</p>
+            </div>
+            
+            <div class="award-item">
+                <h4>Best Open Source Contribution</h4>
+                <p>GitHub Community • 2021</p>
+                <p>Recognized for contributions to the React Open Source Ecosystem</p>
+            </div>
+            
+            <div class="award-item">
+                <h4>Excellence in Engineering</h4>
+                <p>Global Solutions Ltd. • 2019</p>
+                <p>For outstanding technical leadership on the Enterprise Migration Project</p>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section class="mb-5">
+            <h2 class="section-title"><i class="fas fa-tools me-2"></i>Skills</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="skill-category">
+                        <h4><i class="fas fa-laptop-code me-2"></i>Technical Skills</h4>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                                <span>JavaScript/TypeScript</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                                <span>React & Redux</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                                <span>Node.js</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                                <span>AWS/GCP</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="skill-category">
+                        <h4><i class="fas fa-users me-2"></i>Soft Skills</h4>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                                <span>Leadership</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                                <span>Communication</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                                <span>Problem Solving</span>
+                                <span>92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                                <span>Team Collaboration</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Languages -->
+        <section class="mb-5">
+            <h2 class="section-title"><i class="fas fa-language me-2"></i>Languages</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="language-item">
+                        <h5>English <span class="badge bg-primary">Native</span></h5>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 100%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="language-item">
+                        <h5>Spanish <span class="badge bg-success">Professional</span></h5>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="language-item">
+                        <h5>French <span class="badge bg-info">Intermediate</span></h5>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 65%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="language-item">
+                        <h5>Mandarin <span class="badge bg-warning">Basic</span></h5>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 40%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="social-links mb-3">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-medium"></i></a>
+            </div>
+            <p class="mb-0">© 2023 Alexandra Chen. All rights reserved.</p>
+            <p>Designed with <i class="fas fa-heart text-danger"></i> and Bootstrap</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Simple animation for page elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card');
+            
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 100);
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>
